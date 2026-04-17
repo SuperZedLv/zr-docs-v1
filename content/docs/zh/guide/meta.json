@@ -14,8 +14,10 @@
     "wiki/changelog",
     "wiki/special-thanks",
     "---功能指南---",
-    "feature-guide/index",
-    "feature-guide/user",
-    "feature-guide/admin"
+    "home",
+    "console",
+    "pricing",
+    "document",
+    "about"
   ]
 }
