@@ -325,7 +325,7 @@ export function QQGroupQuiz({ locale = 'en' }: QuizProps) {
 
         <h3>{t.methodOne}</h3>
         <img
-          src="/assets/qq_1.jpg"
+          src="/assets/qq_2.jpg"
           alt="QQ Group QR Code"
           style={{
             maxWidth: '300px',
@@ -336,7 +336,7 @@ export function QQGroupQuiz({ locale = 'en' }: QuizProps) {
 
         <h3 className="mt-5">{t.methodTwo}</h3>
         <a
-          href="https://qm.qq.com/q/tMKEbRIHVS"
+          href="https://qm.qq.com/q/zHmgWFYVmo"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded bg-blue-600 px-5 py-2.5 font-medium text-white no-underline transition-colors hover:bg-blue-700"
