@@ -77,8 +77,8 @@ const relatedProjects: { label: string; href: string }[] = [
     href: 'https://github.com/novicezk/midjourney-proxy',
   },
   {
-    label: 'neko-api-key-tool',
-    href: 'https://github.com/Calcium-Ion/neko-api-key-tool',
+    label: 'new-api-key-tool',
+    href: 'https://github.com/Calcium-Ion/new-api-key-tool',
   },
 ];
 
