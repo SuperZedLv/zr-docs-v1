@@ -1,6 +1,6 @@
 ---
 title: AstrBot - Agent Chatbot
-description: AstrBot Configuration Tutorial — Integrating the open-source Agent chatbot platform with New API to inject AI capabilities into instant messaging platforms like QQ, Feishu, DingTalk, and WeChat Work.
+description: AstrBot Configuration Tutorial — Integrating the open-source Agent chatbot platform with BestTokenRouter to inject AI capabilities into instant messaging platforms like QQ, Feishu, DingTalk, and WeChat Work.
 ---
 
 <Callout type="info">
@@ -11,15 +11,15 @@ description: AstrBot Configuration Tutorial — Integrating the open-source Agen
 - Official Documentation: [https://docs.astrbot.app](https://docs.astrbot.app)
 - Project Homepage: [https://github.com/astrbotdevs/astrbot](https://github.com/astrbotdevs/astrbot)
 
-## NewAPI Integration Method
+## BestTokenRouter Integration Method
 
-AstrBot supports integrating NewAPI as a model provider, allowing users to access and utilize various AI model services through NewAPI.
+AstrBot supports integrating BestTokenRouter as a model provider, allowing users to access and utilize various AI model services through BestTokenRouter.
 
 ### Configuration Steps
 
-#### Obtain NewAPI API Key
+#### Obtain BestTokenRouter API Key
 
-After registering and logging into NewAPI, click 'Console' in the top navigation bar, then click 'Token Management', and then click the 'Add Token' button to create a new API Key. Select the appropriate permissions and click 'Create'.
+After registering and logging into BestTokenRouter, click 'Console' in the top navigation bar, then click 'Token Management', and then click the 'Add Token' button to create a new API Key. Select the appropriate permissions and click 'Create'.
 
 ![create-api-key](/assets/astrbot/image.png)
 
@@ -27,24 +27,24 @@ After successful creation, click the 'Copy Key' button to copy the generated API
 
 ![copy-api-key](/assets/astrbot/image-1.png)
 
-#### Configure NewAPI Service Provider in AstrBot
+#### Configure BestTokenRouter Service Provider in AstrBot
 
 Open the AstrBot administration panel, go to the 'Model Providers' page, then click the 'Add Model Provider' button.
 
-NewAPI perfectly supports OpenAI Chat Completion and Responses interfaces. Click 'OpenAI' to enter the OpenAI provider configuration page.
+BestTokenRouter perfectly supports OpenAI Chat Completion and Responses interfaces. Click 'OpenAI' to enter the OpenAI provider configuration page.
 
-In the pop-up dialog, set the API Base URL to the NewAPI interface address. Please use your own deployed New API, or ensure that the service provider has legitimate upstream authorization and compliance obligations for the New API service. If you have deployed NewAPI locally, fill in the local address, for example, `http://localhost:3000/v1`. Do not connect API addresses or keys from unknown sources to a production environment.
+In the pop-up dialog, set the API Base URL to the BestTokenRouter interface address. Please use your own deployed BestTokenRouter, or ensure that the service provider has legitimate upstream authorization and compliance obligations for the BestTokenRouter service. If you have deployed BestTokenRouter locally, fill in the local address, for example, `http://localhost:3000/v1`. Do not connect API addresses or keys from unknown sources to a production environment.
 
 Then, enter the API Key into the 'API Key' field and click the 'Save' button.
 
 ![astrbot-provider-config](/assets/astrbot/image-2.png)
 
-Then click 'Save' to complete the NewAPI provider configuration.
+Then click 'Save' to complete the BestTokenRouter provider configuration.
 
 #### Apply Service Provider
 
-Go to the 'Configuration File' page, find the 'Model' section, change the 'Default Chat Model' to the NewAPI provider you just created, and click the 'Save' button.
+Go to the 'Configuration File' page, find the 'Model' section, change the 'Default Chat Model' to the BestTokenRouter provider you just created, and click the 'Save' button.
 
 ![apply](/assets/astrbot/image-3.png)
 
-At this point, you have successfully configured NewAPI as AstrBot's model provider. Now, you can access and use various AI model services provided by NewAPI through AstrBot.
+At this point, you have successfully configured BestTokenRouter as AstrBot's model provider. Now, you can access and use various AI model services provided by BestTokenRouter through AstrBot.

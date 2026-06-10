@@ -27,10 +27,10 @@
     "ai": "^5.0.93",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "fumadocs-core": "16.0.10",
+    "fumadocs-core": "^16.9.3",
     "fumadocs-mdx": "13.0.7",
-    "fumadocs-openapi": "^10.1.0",
-    "fumadocs-ui": "16.0.10",
+    "fumadocs-openapi": "^10.0.0",
+    "fumadocs-ui": "^16.9.3",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "katex": "^0.16.25",
     "lucide-react": "^0.552.0",
@@ -59,6 +59,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.16",
     "tsx": "^4.19.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0"
   }
 }

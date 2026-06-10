@@ -2,11 +2,11 @@
 title: Docker Compose Configuration Guide
 ---
 
-This document details the Docker Compose configuration options for New API, applicable to various deployment scenarios.
+This document details the Docker Compose configuration options for BestTokenRouter, applicable to various deployment scenarios.
 
 ## Basic Configuration Structure
 
-The Docker Compose configuration file `docker-compose.yml` defines how the New API service and its dependent services (such as MySQL, Redis) are deployed.
+The Docker Compose configuration file `docker-compose.yml` defines how the BestTokenRouter service and its dependent services (such as MySQL, Redis) are deployed.
 
 ## Standard Configuration (Recommended for Production)
 
@@ -102,7 +102,7 @@ volumes:
 
 ## Simplified Configuration (Suitable for Testing)
 
-For testing purposes, you can use the following simplified version, which only includes the New API service itself:
+For testing purposes, you can use the following simplified version, which only includes the BestTokenRouter service itself:
 
 ```yaml
 services:
@@ -120,7 +120,7 @@ services:
 
 ## Configuration Details
 
-### New API Service Configuration
+### BestTokenRouter Service Configuration
 
 | Parameter        | Description                                                                    |
 | ---------------- | ------------------------------------------------------------------------------ |
@@ -130,13 +130,13 @@ services:
 | `command`        | Startup command, customizable startup parameters                               |
 | `ports`          | Port mapping, by default maps container's 3000 port to host's 3000 port        |
 | `volumes`        | Volume mapping, ensures data persistence                                       |
-| `environment`    | Environment variable settings, used to configure New API behavior              |
+| `environment`    | Environment variable settings, used to configure BestTokenRouter behavior              |
 | `depends_on`     | Dependent services, ensures startup in the correct order                       |
 | `healthcheck`    | Health check configuration, used to monitor service status                     |
 
 ### Environment Variable Description
 
-New API supports various environment variable configurations. Here are some commonly used ones:
+BestTokenRouter supports various environment variable configurations. Here are some commonly used ones:
 
 | Environment Variable | Description                                         | Example                               |
 | -------------------- | --------------------------------------------------- | ------------------------------------- |

@@ -1,27 +1,27 @@
 ---
 title: newapi
-description: newapi 是 New API 官方用户级 Skill 插件，支持 Claude Code、Codex 和 OpenClaw（龙虾）。通过自然语言指令在 AI 编码助手内查询模型、管理令牌、查看分组和余额，并直接提问 New API 的使用问题。
+description: newapi 是 BestTokenRouter 官方用户级 Skill 插件，支持 Claude Code、Codex 和 OpenClaw（龙虾）。通过自然语言指令在 AI 编码助手内查询模型、管理令牌、查看分组和余额，并直接提问 BestTokenRouter 的使用问题。
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
 <Callout type="info" title="什么是 newapi-skills？">
-  **newapi-skills** 是 New API 官方推出的 AI 编辑器 Skill 插件。Skill 是一种轻量级扩展协议，让 AI 编码助手（如 Claude Code、Codex、OpenClaw（龙虾）、Cursor、Windsurf、Cline 等）能够在编辑器内**直接调用 New API 接口**，完成模型查询、令牌管理、余额查看，以及提问 New API 部署、配置和 API 调用等使用问题，实现真正的"编码即运维"工作流。
+  **newapi-skills** 是 BestTokenRouter 官方推出的 AI 编辑器 Skill 插件。Skill 是一种轻量级扩展协议，让 AI 编码助手（如 Claude Code、Codex、OpenClaw（龙虾）、Cursor、Windsurf、Cline 等）能够在编辑器内**直接调用 BestTokenRouter 接口**，完成模型查询、令牌管理、余额查看，以及提问 BestTokenRouter 部署、配置和 API 调用等使用问题，实现真正的"编码即运维"工作流。
 
   - GitHub 仓库：[github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
 
-  现在也支持在 OpenClaw（龙虾）中使用，你可以直接在对话工作流里调用 `/newapi` 指令完成模型查询、令牌管理、余额查看，也能直接提问 New API 的使用问题。
+  现在也支持在 OpenClaw（龙虾）中使用，你可以直接在对话工作流里调用 `/newapi` 指令完成模型查询、令牌管理、余额查看，也能直接提问 BestTokenRouter 的使用问题。
 </Callout>
 
 ## 为什么使用 Skills
 
-在日常 AI 开发中，开发者经常需要在编辑器和 New API 管理面板之间反复切换：查看可用模型、创建 API 令牌、检查余额、调整分组配额……这些操作打断了编码流程。
+在日常 AI 开发中，开发者经常需要在编辑器和 BestTokenRouter 管理面板之间反复切换：查看可用模型、创建 API 令牌、检查余额、调整分组配额……这些操作打断了编码流程。
 
 **newapi-skills 解决的问题：**
 
 - **零切换**：在 Claude Code、Codex、OpenClaw（龙虾）等 AI 编码助手中直接输入自然语言指令，无需打开浏览器或管理后台
-- **内置问答**：可直接提问 New API 的部署、配置、分组、模型调用格式等使用问题，快速获得帮助
+- **内置问答**：可直接提问 BestTokenRouter 的部署、配置、分组、模型调用格式等使用问题，快速获得帮助
 - **安全优先**：密钥永不明文显示，令牌复制与注入均通过安全通道完成（`sk-` 开头的密钥绝不会出现在终端或日志中）
 - **即装即用**：一行 `npx` 命令完成安装，自动检测运行时环境（Bun / Node.js / Deno）
 - **多编辑器兼容**：支持所有实现 Skills 协议的 AI 编辑器和编码助手
@@ -43,13 +43,13 @@ newapi-skills 可在以下 AI 编码工具中使用：
 
 ## 功能与指令一览
 
-以下是 newapi-skills 提供的全部指令。这些指令通过 New API REST API 执行，支持查询和管理 New API 实例中的各类资源。
+以下是 newapi-skills 提供的全部指令。这些指令通过 BestTokenRouter REST API 执行，支持查询和管理 BestTokenRouter 实例中的各类资源。
 
 ### 查询类指令
 
 | 指令 | 说明 | 用途 |
 |------|------|------|
-| `/newapi models` | 列出可用 AI 模型 | 查看当前 New API 实例中配置的所有模型（OpenAI、Claude、Gemini 等） |
+| `/newapi models` | 列出可用 AI 模型 | 查看当前 BestTokenRouter 实例中配置的所有模型（OpenAI、Claude、Gemini 等） |
 | `/newapi groups` | 列出用户分组 | 查看账户所属的分组及其配额、倍率设置 |
 | `/newapi balance` | 查看账户余额 | 实时查询当前用户的账户余额和用量 |
 
@@ -67,7 +67,7 @@ newapi-skills 可在以下 AI 编码工具中使用：
 
 | 指令 | 说明 | 用途 |
 |------|------|------|
-| `/newapi help <question>` | 提问关于 New API 的问题 | 获取 New API 部署、配置、API 调用格式等帮助信息 |
+| `/newapi help <question>` | 提问关于 BestTokenRouter 的问题 | 获取 BestTokenRouter 部署、配置、API 调用格式等帮助信息 |
 
 ## 安装与配置
 
@@ -86,7 +86,7 @@ newapi-skills 可在以下 AI 编码工具中使用：
   <Step>
     ### 设置环境变量
 
-    newapi-skills 需要三个环境变量来连接你的 New API 实例。推荐在终端配置文件中设置：
+    newapi-skills 需要三个环境变量来连接你的 BestTokenRouter 实例。推荐在终端配置文件中设置：
 
     ```bash
     # ~/.bashrc 或 ~/.zshrc
@@ -97,7 +97,7 @@ newapi-skills 可在以下 AI 编码工具中使用：
 
     | 变量 | 说明 | 示例 |
     |------|------|------|
-    | `NEWAPI_BASE_URL` | New API 服务地址 | `https://api.example.com` |
+    | `NEWAPI_BASE_URL` | BestTokenRouter 服务地址 | `https://api.example.com` |
     | `NEWAPI_ACCESS_TOKEN` | 管理员或用户的访问令牌 | 从「个人设置 → 账户管理 → 安全设置 → 系统访问令牌」获取 |
     | `NEWAPI_USER_ID` | 用户 ID | `1`（管理员默认为 1） |
 
@@ -111,7 +111,7 @@ newapi-skills 可在以下 AI 编码工具中使用：
     - 输入 `/newapi models` 查看可用模型列表
     - 输入 `/newapi balance` 查看当前余额
     - 输入 `/newapi create-token my-app` 创建一个名为 `my-app` 的新令牌
-    - 输入 `/newapi help 如何配置模型分组和令牌？` 直接提问 New API 的使用问题
+    - 输入 `/newapi help 如何配置模型分组和令牌？` 直接提问 BestTokenRouter 的使用问题
     - 在 OpenClaw（龙虾）中同样可以直接调用 `/newapi models`、`/newapi balance` 等指令
   </Step>
 </Steps>
@@ -140,5 +140,5 @@ newapi-skills 内置多层安全防护，保护你的 API 密钥安全：
 newapi-skills 正在持续迭代中，指令和功能可能随版本更新。请以仓库 README 为准获取最新信息和变更日志：
 
 - GitHub 仓库：[github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
-- New API 官网：[www.newapi.ai](https://www.newapi.ai)
-- New API GitHub：[github.com/QuantumNous/new-api](https://github.com/QuantumNous/new-api)
+- BestTokenRouter 官网：[www.newapi.ai](https://www.newapi.ai)
+- BestTokenRouter GitHub：[github.com/QuantumNous/new-api](https://github.com/QuantumNous/new-api)

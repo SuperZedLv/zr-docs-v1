@@ -1,62 +1,39 @@
-import { defineI18nUI } from 'fumadocs-ui/i18n';
 import { i18n } from '@/lib/i18n';
 import { Provider } from '@/components/provider';
 import '../global.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { createMetadata, baseUrl } from '@/lib/metadata';
 import { notFound } from 'next/navigation';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
-const { provider } = defineI18nUI(i18n, {
-  translations: {
-    en: {
-      displayName: 'English',
-    },
-    zh: {
-      displayName: '简体中文',
-      search: '搜索文档',
-      searchNoResult: '没有结果',
-      toc: '目录',
-      lastUpdate: '最后更新于',
-      chooseTheme: '选择主题',
-      chooseLanguage: '选择语言',
-      nextPage: '下一页',
-      previousPage: '上一页',
-      tocNoHeadings: '目录为空',
-    },
-    ja: {
-      displayName: '日本語',
-      search: 'ドキュメントを検索',
-      searchNoResult: '結果が見つかりません',
-      toc: '目次',
-      lastUpdate: '最終更新',
-      chooseTheme: 'テーマを選択',
-      chooseLanguage: '言語を選択',
-      nextPage: '次のページ',
-      previousPage: '前のページ',
-      tocNoHeadings: '見出しがありません',
-    },
-  },
-});
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+};
 
 const titleMap: Record<
   string,
   { default: string; template: string; description: string }
 > = {
   en: {
-    default: 'New API - The Foundation of Your AI Universe',
-    template: '%s | New API',
+    default: 'BestTokenRouter - The Foundation of Your AI Universe',
+    template: '%s | BestTokenRouter',
     description:
       'Connect all AI providers, manage your AI assets, and build the future on a unified infrastructure platform. Deploy in minutes, scale effortlessly.',
   },
   zh: {
-    default: 'New API - AI 基座',
-    template: '%s | New API',
+    default: 'BestTokenRouter - AI 基座',
+    template: '%s | BestTokenRouter',
     description:
       '承载所有 AI 应用，管理你的数字资产，连接未来的统一基础设施平台。快速部署，轻松扩展。',
   },
   ja: {
-    default: 'New API - あなたの AI ユニバースの基盤',
-    template: '%s | New API',
+    default: 'BestTokenRouter - あなたの AI ユニバースの基盤',
+    template: '%s | BestTokenRouter',
     description:
       'すべての AI プロバイダーを接続し、AI アセットを管理し、統一されたインフラストラクチャプラットフォームで未来を構築。数分でデプロイ、簡単にスケール。',
   },
@@ -90,9 +67,9 @@ export async function generateMetadata({
       'Intelligent API Management',
     ],
     authors: [
-      { name: 'New API Team', url: 'https://github.com/QuantumNous/new-api' },
+      { name: 'BestTokenRouter Team', url: 'https://github.com/QuantumNous/new-api' },
     ],
-    creator: 'New API Team',
+    creator: 'BestTokenRouter Team',
     alternates: {
       languages: {
         en: '/en',
@@ -105,7 +82,7 @@ export async function generateMetadata({
       locale: lang,
       title: titles.default,
       description: titles.description,
-      siteName: 'New API',
+      siteName: 'BestTokenRouter',
     },
     twitter: {
       card: 'summary_large_image',
@@ -134,8 +111,13 @@ export default async function RootLayout({
   }
 
   return (
-    <Provider i18n={provider(lang)} lang={lang}>
-      {children}
-    </Provider>
+    <html lang={lang} suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col">
+        <Provider lang={lang}>{children}</Provider>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
+      </body>
+    </html>
   );
 }

@@ -1,10 +1,10 @@
 ---
 title: LunaTranslator - 开源 GalGame 翻译器
-description: LunaTranslator 教程 — 开源 GalGame / 视觉小说翻译器，支持 HOOK、OCR 与 AI 翻译引擎。对接 New API 提升翻译质量。
+description: LunaTranslator 教程 — 开源 GalGame / 视觉小说翻译器，支持 HOOK、OCR 与 AI 翻译引擎。对接 BestTokenRouter 提升翻译质量。
 ---
 
 <Callout type="info" title="聊天设置选项">
-  在 New API
+  在 BestTokenRouter
   控制台的系统设置->聊天设置中，可添加如下快捷选项，便于在令牌管理页一键填充到
   LunaTranslator：
 </Callout>
@@ -43,13 +43,13 @@ description: LunaTranslator 教程 — 开源 GalGame / 视觉小说翻译器，
 
 在 [LunaTranslator 文档- 下载 & 启动 & 更新](https://docs.lunatranslator.org/zh/README.html) 进行下载安装
 
-## 在 LunaTranslator 接入 NewAPI
+## 在 LunaTranslator 接入 BestTokenRouter
 
-LunaTranslator 支持接入本地部署的 NewAPI。请使用您自己部署的 New API，或确认服务方具备合法上游授权和合规义务的 New API 服务。不要将来源不明的 API 地址或密钥接入生产环境。
+LunaTranslator 支持接入本地部署的 BestTokenRouter。请使用您自己部署的 BestTokenRouter，或确认服务方具备合法上游授权和合规义务的 BestTokenRouter 服务。不要将来源不明的 API 地址或密钥接入生产环境。
 
 ### 一键配置
 
-1. 在 New API 控制台的`系统设置`->`聊天设置`中，添加如下快捷选项：
+1. 在 BestTokenRouter 控制台的`系统设置`->`聊天设置`中，添加如下快捷选项：
 
    ```json
    { "LunaTranslator": "lunatranslator://llmapi/base64?data={cheryConfig}" }
@@ -57,7 +57,7 @@ LunaTranslator 支持接入本地部署的 NewAPI。请使用您自己部署的 
 
    ![add_config](/assets/luna_translator/add_config.png)
 
-2. 在 **`NewAPI`** -> `控制台` -> `令牌管理` 选项卡中选择要使用在 LunaTranslator 的令牌，点击聊天按钮旁的下拉选项，选择 `LunaTranslator`,将会跳转到 LunaTranslator 并自动配置 API 地址与 API Key
+2. 在 **`BestTokenRouter`** -> `控制台` -> `令牌管理` 选项卡中选择要使用在 LunaTranslator 的令牌，点击聊天按钮旁的下拉选项，选择 `LunaTranslator`,将会跳转到 LunaTranslator 并自动配置 API 地址与 API Key
 
    ![跳转到 LunaTranslator](/assets/luna_translator/jump_to_app.png)
 
@@ -65,7 +65,7 @@ LunaTranslator 支持接入本地部署的 NewAPI。请使用您自己部署的 
 
    ![设置api](/assets/luna_translator/api_setting.png)
 
-4. 点击 **model** 下拉框旁的刷新按钮，获取 NewAPI 平台的模型列表，选择或输入模型名称，完成后点击确定保存
+4. 点击 **model** 下拉框旁的刷新按钮，获取 BestTokenRouter 平台的模型列表，选择或输入模型名称，完成后点击确定保存
 
    ![设置模型](/assets/luna_translator/setting_model.png)
 
@@ -75,7 +75,7 @@ LunaTranslator 支持接入本地部署的 NewAPI。请使用您自己部署的 
 
 ### 手动配置
 
-1. 在 **`NewAPI`** -> `控制台` -> `令牌管理` 选项卡中获取 API Key
+1. 在 **`BestTokenRouter`** -> `控制台` -> `令牌管理` 选项卡中获取 API Key
 
    ![获取 API Key](/assets/luna_translator/copy_api_key.png)
 
@@ -93,11 +93,11 @@ LunaTranslator 支持接入本地部署的 NewAPI。请使用您自己部署的 
 
    ![设置 API2](/assets/luna_translator/setting_api2.png)
 
-5. 点击 **model** 下拉框旁的刷新按钮，获取 NewAPI 平台的模型列表，选择或输入模型名称，完成后点击确定保存
+5. 点击 **model** 下拉框旁的刷新按钮，获取 BestTokenRouter 平台的模型列表，选择或输入模型名称，完成后点击确定保存
 
    ![设置 API3](/assets/luna_translator/setting_api3.png)
 
-6. 点击 **NewAPI** 旁边的开关按钮，启用接口即可开始使用
+6. 点击 **BestTokenRouter** 旁边的开关按钮，启用接口即可开始使用
 
    ![打开API](/assets/luna_translator/open_api.png)
 

@@ -1,6 +1,6 @@
 ---
 title: LangBot - Instant Messaging Bot Development Platform
-description: LangBot integration guide — build AI-powered chatbots for Feishu, DingTalk, Telegram, Discord, and more. Supports Knowledge Base, Agent, and MCP with New API.
+description: LangBot integration guide — build AI-powered chatbots for Feishu, DingTalk, Telegram, Discord, and more. Supports Knowledge Base, Agent, and MCP with BestTokenRouter.
 ---
 
 <Callout type="info">
@@ -8,7 +8,7 @@ description: LangBot integration guide — build AI-powered chatbots for Feishu,
   supports various instant messaging platforms such as Feishu, DingTalk, WeChat,
   QQ, Telegram, Discord, Slack, etc. It integrates with mainstream global AI
   models, supports various AI application capabilities like Knowledge Base,
-  Agent, MCP, and is perfectly compatible with NewAPI.
+  Agent, MCP, and is perfectly compatible with BestTokenRouter.
 </Callout>
 
 - Official Website: [https://langbot.app](https://langbot.app/)
@@ -16,19 +16,19 @@ description: LangBot integration guide — build AI-powered chatbots for Feishu,
 - Official Documentation: [https://docs.langbot.app](https://docs.langbot.app/)
 - Open Source Address: [https://github.com/langbot-app/LangBot](https://github.com/langbot-app/LangBot)
 
-## Integrating NewAPI
+## Integrating BestTokenRouter
 
-LangBot supports integrating with locally deployed NewAPI and third-party NewAPI services built using NewAPI.
+LangBot supports integrating with locally deployed BestTokenRouter and third-party BestTokenRouter services built using BestTokenRouter.
 
 ### Usage
 
-1.  Obtain an API key from NewAPI
+1.  Obtain an API key from BestTokenRouter
     ![获取 API key](/assets/langbot/get_api_key.png)
 
-        If NewAPI is deployed locally, please configure the API address yourself (refer to [Container Network Connection](https://docs.langbot.app/en/workshop/network-details.html)). If using a third-party NewAPI service, you can copy the address from the page. Note that `/v1` needs to be appended to the address.
+        If BestTokenRouter is deployed locally, please configure the API address yourself (refer to [Container Network Connection](https://docs.langbot.app/en/workshop/network-details.html)). If using a third-party BestTokenRouter service, you can copy the address from the page. Note that `/v1` needs to be appended to the address.
 
-2.  Add a model in LangBot, select NewAPI as the provider, and fill in the corresponding API key and API address
-    ![添加 NewAPI 模型](/assets/langbot/add_newapi_model.png)
+2.  Add a model in LangBot, select BestTokenRouter as the provider, and fill in the corresponding API key and API address
+    ![添加 BestTokenRouter 模型](/assets/langbot/add_newapi_model.png)
 
 3.  Select the model to use in the pipeline
 
@@ -44,9 +44,9 @@ LangBot supports integrating with locally deployed NewAPI and third-party NewAPI
 
 ### Using LangBot Knowledge Base
 
-LangBot supports using NewAPI's embedding models and utilizing them as vector models for the knowledge base.
+LangBot supports using BestTokenRouter's embedding models and utilizing them as vector models for the knowledge base.
 
-1. Add an embedding model in LangBot, select NewAPI as the provider
+1. Add an embedding model in LangBot, select BestTokenRouter as the provider
    ![添加嵌入模型](/assets/langbot/add_embedding_model.png)
 
 2. Select the embedding model when creating a new knowledge base

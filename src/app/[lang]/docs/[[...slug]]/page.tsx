@@ -12,6 +12,7 @@ import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { Feedback } from '@/components/feedback';
 import { LLMCopyButton, ViewOptions } from '@/components/page-actions';
 import { onRateAction } from '@/lib/github';
+import { Footer } from '@/components/footer';
 
 // GitHub repository info for source links
 const owner = 'QuantumNous';
@@ -38,6 +39,7 @@ export default async function Page(props: {
         // Disable TOC in 'full' mode (OpenAPI page) to enable two-column layout
         enabled: !page.data.full,
       }}
+      footer={<Footer lang={lang} />}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription className="mb-2">

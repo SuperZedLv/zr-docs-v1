@@ -2,11 +2,11 @@
 title: Ratio Settings
 ---
 
-Ratio settings are a core configuration of NewAPI's internal cost accounting system. By setting different ratios, you can flexibly control internal cost allocation, budget control, or enterprise customer billing standards for various models and user groups.
+Ratio settings are a core configuration of BestTokenRouter's internal cost accounting system. By setting different ratios, you can flexibly control internal cost allocation, budget control, or enterprise customer billing standards for various models and user groups.
 
 ## Ratio System Overview
 
-NewAPI uses a three-tier ratio system to calculate user quota consumption:
+BestTokenRouter uses a three-tier ratio system to calculate user quota consumption:
 
 1.  **Model Ratio** - Defines the base billing multiplier for different AI models
 2.  **Completion Ratio** - Applies additional billing adjustments to output tokens
@@ -14,7 +14,7 @@ NewAPI uses a three-tier ratio system to calculate user quota consumption:
 
 ### Relationship between Quota and Ratios
 
-In the New API system, ratios are key parameters for calculating quota consumption. Quota is the internal billing unit of the system, and all API calls are ultimately converted into quota points for deduction.
+In the BestTokenRouter system, ratios are key parameters for calculating quota consumption. Quota is the internal billing unit of the system, and all API calls are ultimately converted into quota points for deduction.
 
 Quota Unit Conversion:
 
@@ -36,7 +36,7 @@ Quota Unit Conversion:
 配额消耗 = 模型固定价格 × 分组倍率 × 配额单位(500,000)
 ```
 
-#### Audio Models (Special handling, automatically processed internally by New API)
+#### Audio Models (Special handling, automatically processed internally by BestTokenRouter)
 
 ```
 配额消耗 = (文本输入token + 文本输出token × 补全倍率 + 音频输入token × 音频倍率 + 音频输出token × 音频倍率 × 音频补全倍率) × 模型倍率 × 分组倍率
@@ -44,7 +44,7 @@ Quota Unit Conversion:
 
 #### Pre-consumption and Post-consumption Mechanism
 
-New API adopts a dual billing mechanism of pre-consumption and post-consumption:
+BestTokenRouter adopts a dual billing mechanism of pre-consumption and post-consumption:
 
 1.  **Pre-consumption Phase**: Before an API call, calculate and pre-deduct quota consumption based on estimated token count.
 2.  **Post-consumption Phase**: After an API call is completed, recalculate quota consumption based on actual token count.

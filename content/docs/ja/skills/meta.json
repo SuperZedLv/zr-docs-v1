@@ -1,6 +1,6 @@
 {
   "title": "Skills",
-  "description": "Claude Code、Codex、OpenClaw 向け New API Skills。使い方の質問にも対応",
+  "description": "Claude Code、Codex、OpenClaw 向け BestTokenRouter Skills。使い方の質問にも対応",
   "icon": "Puzzle",
   "root": true,
   "pages": [

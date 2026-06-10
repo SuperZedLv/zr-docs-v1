@@ -1,7 +1,6 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import type { BaseLayoutProps, LinkItemType } from 'fumadocs-ui/layouts/shared';
 import { i18n } from '@/lib/i18n';
 import Image from 'next/image';
-import type { LinkItemType } from 'fumadocs-ui/layouts/docs';
 
 export const linkItems: LinkItemType[] = [
   {
@@ -45,8 +44,8 @@ export const linkItems: LinkItemType[] = [
 
 export const logo = (
   <Image
-    alt="New API"
-    src="/assets/newapi.svg"
+    alt="BestTokenRouter"
+    src="/assets/logo.png"
     width={20}
     height={20}
     className="size-5"
@@ -57,13 +56,16 @@ export const logo = (
 
 export function baseOptions(locale: string): BaseLayoutProps {
   return {
-    i18n,
+    i18n: {
+      languages: i18n.languages,
+      defaultLanguage: i18n.defaultLanguage,
+    },
     nav: {
       title: (
         <>
           {logo}
           <span className="font-medium in-[header]:text-[15px] [.uwu_&]:hidden">
-            New API
+            BestTokenRouter
           </span>
         </>
       ),

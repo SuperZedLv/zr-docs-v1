@@ -2,7 +2,7 @@
 title: 1Panel Panel Deployment
 ---
 
-This document provides a graphical tutorial for deploying New API using the 1Panel panel.
+This document provides a graphical tutorial for deploying BestTokenRouter using the 1Panel panel.
 
 ## Prerequisites
 
@@ -22,12 +22,12 @@ This document provides a graphical tutorial for deploying New API using the 1Pan
 
 ![1panel](/assets/1panel/1panel.jpg)
 
-## Step 2: Install New API
+## Step 2: Install BestTokenRouter
 
 ### Search for Applications
 
 <Callout type="info" title="Search for Applications">
-  Go to the application list in the App Store, find the New API application under the [AI] category, and install it.
+  Go to the application list in the App Store, find the BestTokenRouter application under the [AI] category, and install it.
 </Callout>
 
 ![1panel-newapi](/assets/1panel/1panel-newapi.jpg)
@@ -35,12 +35,12 @@ This document provides a graphical tutorial for deploying New API using the 1Pan
 ### Configure Parameters
 
 <Callout type="info" title="Install Application">
-  Configure New API application parameters on the installation page:
+  Configure BestTokenRouter application parameters on the installation page:
 </Callout>
 
-- **Name**: The name of the New API application to be created
-- **Version**: Select the version of New API
-- **Port**: The service port for the New API application
+- **Name**: The name of the BestTokenRouter application to be created
+- **Version**: Select the version of BestTokenRouter
+- **Port**: The service port for the BestTokenRouter application
 - **Timezone**: Enter the timezone where the server is located (default Asia/Shanghai)
 - **Advanced Settings**: Be sure to check external port access
 
@@ -49,7 +49,7 @@ This document provides a graphical tutorial for deploying New API using the 1Pan
 ### Confirm Installation
 
 <Callout type="info" title="Confirm Installation">
-  Click Confirm to start the installation. The page will automatically redirect to the installed applications list. Wait for the New API application status to change to Started.
+  Click Confirm to start the installation. The page will automatically redirect to the installed applications list. Wait for the BestTokenRouter application status to change to Started.
 </Callout>
 
 ![newapi-start](/assets/1panel/newapi-start.jpg)
@@ -67,7 +67,7 @@ After installation, it is recommended to configure the following key environment
 
 ### Configuration Method
 
-1. In the 1Panel application list, click the **Parameters** button for the New API application
+1. In the 1Panel application list, click the **Parameters** button for the BestTokenRouter application
 2. Add in the environment variables section:
    - `SESSION_SECRET=your_random_secret_key`
    - `CRYPTO_SECRET=your_crypto_secret_key` (optional)
@@ -84,10 +84,10 @@ openssl rand -hex 16
 head -c 16 /dev/urandom | xxd -p
 ```
 
-## Step 4: Access New API
+## Step 4: Access BestTokenRouter
 
 <Callout type="info" title="Access Application">
-  - On the `Installed` page, click `Jump` to enter the New API WebUI page
+  - On the `Installed` page, click `Jump` to enter the BestTokenRouter WebUI page
   - Before use, it is recommended to set the `Default Access Address` on the `Panel Settings` page
 </Callout>
 
@@ -110,7 +110,7 @@ Ensure the `SESSION_SECRET` environment variable is set and not empty.
 ### How to update version
 
 1. Log in to 1Panel panel, go to **App Store** → **Upgradable page**
-2. Find the New API application, click the **Upgrade** button
+2. Find the BestTokenRouter application, click the **Upgrade** button
 3. Select the target version, click **Confirm**
 
 ### How to persist data

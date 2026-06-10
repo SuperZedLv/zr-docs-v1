@@ -191,11 +191,11 @@ Different rate limiting strategies can be set for different user Groups:
 
 ## Ratio Settings
 
-Ratio settings are the core configuration of the New API billing system. By setting different Ratios, you can flexibly control the billing standards for various models and user groups.
+Ratio settings are the core configuration of the BestTokenRouter billing system. By setting different Ratios, you can flexibly control the billing standards for various models and user groups.
 
 ### Ratio System Overview
 
-New API uses a three-tier Ratio system to calculate user Quota consumption:
+BestTokenRouter uses a three-tier Ratio system to calculate user Quota consumption:
 
 1. **Model Ratio** - Defines the base billing multiplier for different AI models.
 2. **Completion Ratio** - Applies additional billing adjustments for output tokens.
@@ -203,7 +203,7 @@ New API uses a three-tier Ratio system to calculate user Quota consumption:
 
 ### Relationship between Quota and Ratio
 
-In the New API system, Ratios are key parameters for calculating Quota consumption. Quota is the internal billing unit of the system, and all API calls are ultimately converted into Quota points for deduction.
+In the BestTokenRouter system, Ratios are key parameters for calculating Quota consumption. Quota is the internal billing unit of the system, and all API calls are ultimately converted into Quota points for deduction.
 
 **Quota Unit Conversion:**
 
@@ -233,7 +233,7 @@ Quota Consumption = (Text Input Token + Text Output Token × Completion Ratio + 
 
 #### Pre-consumption and Post-consumption Mechanism
 
-New API employs a dual billing mechanism of pre-consumption and post-consumption:
+BestTokenRouter employs a dual billing mechanism of pre-consumption and post-consumption:
 
 1. **Pre-consumption Stage**: Before an API call, Quota consumption is calculated based on estimated Token count and pre-deducted.
 2. **Post-consumption Stage**: After an API call is completed, Quota consumption is recalculated based on the actual Token count.

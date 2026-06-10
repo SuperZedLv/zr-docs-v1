@@ -44,7 +44,7 @@ function Header() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            New API
+            BestTokenRouter
           </a>
         </p>
       </div>
@@ -247,7 +247,7 @@ function Input(props: ComponentProps<'textarea'>) {
 
 const roleName: Record<string, string> = {
   user: 'you',
-  assistant: 'New API Docs',
+  assistant: 'BestTokenRouter Docs',
 };
 
 function Message({

@@ -8,5 +8,5 @@ import { redirect } from 'next/navigation';
  * Keeping this page server-only avoids shipping extra client JS.
  */
 export default function RootPage() {
-  redirect(`/${i18n.defaultLanguage}`);
+  redirect(`/${i18n.defaultLanguage}/docs`);
 }
