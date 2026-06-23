@@ -2,5 +2,5 @@
   "title": "Wiki",
   "description": "BEST TOKEN project documentation and basics",
   "icon": "BookOpen",
-  "pages": ["basic-concepts", "project-records"]
+  "pages": ["basic-concepts"]
 }
