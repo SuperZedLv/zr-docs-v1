@@ -1,72 +1,83 @@
-# 使用国内镜像源以解决网络连接问题，如果不需要镜像源，可以改回 node:20-alpine
-FROM docker.m.daocloud.io/library/node:20-alpine AS base
+# ====================== 安全优化的 Dockerfile ======================
+# 使用 Debian-based 镜像避免 Alpine/musl 兼容性问题
+FROM node:20-slim AS base
 
-# Install dependencies only when needed
+# ==================== 依赖安装阶段 ====================
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
+# 只复制 lockfile 和 package.json，充分利用缓存
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+
+# 安装所有依赖（包括 devDependencies，构建时需要）
+# 使用 --ignore-scripts 防止恶意 postinstall 脚本
 RUN \
-  if [ -f package-lock.json ]; then npm ci --legacy-peer-deps --ignore-scripts; \
-  elif [ -f yarn.lock ]; then yarn --frozen-lockfile --ignore-scripts; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile --ignore-scripts; \
-  else echo "Lockfile not found." && exit 1; \
+  if [ -f package-lock.json ]; then \
+    npm ci --legacy-peer-deps --ignore-scripts; \
+  elif [ -f yarn.lock ]; then \
+    yarn --frozen-lockfile --ignore-scripts; \
+  elif [ -f pnpm-lock.yaml ]; then \
+    corepack enable pnpm && pnpm i --frozen-lockfile --ignore-scripts; \
+  else \
+    echo "Lockfile not found." && exit 1; \
   fi
 
-
-# Rebuild the source code only when needed
+# ==================== 构建阶段 ====================
 FROM base AS builder
 WORKDIR /app
+
+# 从 deps 阶段复制 node_modules（已优化）
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# 确保执行生成脚本，并禁用 Turbopack 以提高构建稳定性（可选，如果卡住或报错）
-# ENV NEXT_TELEMETRY_DISABLED 1
+# 配置 npm 代理（解决网络问题）
+ARG HTTP_PROXY=http://192.168.110.60:9300
+ARG HTTPS_PROXY=http://192.168.110.60:9300
+ENV HTTP_PROXY=${HTTP_PROXY}
+ENV HTTPS_PROXY=${HTTPS_PROXY}
+ENV npm_config_proxy=${HTTP_PROXY}
+ENV npm_config_https_proxy=${HTTPS_PROXY}
+
+# 执行 MDX 生成
 RUN npx fumadocs-mdx
 
-# Next.js collects completely anonymous education usage data.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
+# 构建（Debian-slim 支持原生 SWC 绑定，可用 Turbopack）
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN \
-  if [ -f package-lock.json ]; then npm run build; \
-  elif [ -f yarn.lock ]; then yarn build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
+  if [ -f package-lock.json ]; then \
+    npm run build; \
+  elif [ -f yarn.lock ]; then \
+    yarn build; \
+  elif [ -f pnpm-lock.yaml ]; then \
+    corepack enable pnpm && pnpm run build; \
+  else \
+    echo "Lockfile not found." && exit 1; \
   fi
 
-# Production image, copy all the files and run next
+# ==================== 生产运行阶段 ====================
 FROM base AS runner
+
 WORKDIR /app
-
 ENV NODE_ENV=production
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# 创建非 root 用户（安全最佳实践）
+RUN groupadd --system --gid 1001 nodejs \
+    && useradd --system --uid 1001 --gid nodejs nextjs
 
+# 复制必要文件
 COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# 权限控制
+RUN mkdir -p .next/cache \
+    && chown -R nextjs:nodejs .next
 
 USER nextjs
 
 EXPOSE 3000
 
-ENV PORT=3000
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+# 使用 standalone 输出（体积更小）
 CMD ["node", "server.js"]

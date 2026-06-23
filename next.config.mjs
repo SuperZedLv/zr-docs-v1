@@ -11,14 +11,10 @@ const config = {
     serverActions: {
       allowedOrigins: [
         'localhost:3000',
-        // newapi.pro domains
-        'docs.newapi.pro',
-        'newapi.pro',
-        'www.newapi.pro',
-        // newapi.ai domains
-        'docs.newapi.ai',
-        'newapi.ai',
-        'www.newapi.ai',
+        // besttokenrouter.ai domains
+        'docs.besttokenrouter.ai',
+        'besttokenrouter.ai',
+        'www.besttokenrouter.ai',
         // Vercel preview
         'new-api-docs-v1.vercel.app',
       ],

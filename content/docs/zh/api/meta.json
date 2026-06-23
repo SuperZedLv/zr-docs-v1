@@ -1,6 +1,6 @@
 {
   "title": "API 参考",
-  "description": "BestTokenRouter 接口文档",
+  "description": "BEST TOKEN 接口文档",
   "icon": "Code",
   "root": true,
   "pages": ["index", "ai-model"]

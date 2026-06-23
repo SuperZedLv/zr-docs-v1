@@ -11,9 +11,9 @@ export function createMetadata(override: Metadata): Metadata {
     openGraph: {
       title: override.title ?? undefined,
       description: override.description ?? undefined,
-      url: 'https://www.newapi.ai',
+      url: 'https://www.besttokenrouter.ai',
       images: '/assets/logo.png',
-      siteName: 'BestTokenRouter',
+      siteName: 'BEST TOKEN',
       type: 'website',
       ...override.openGraph,
     },

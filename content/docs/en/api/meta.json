@@ -1,6 +1,6 @@
 {
   "title": "API Reference",
-  "description": "BestTokenRouter Complete API Documentation",
+  "description": "BEST TOKEN Complete API Documentation",
   "icon": "Code",
   "root": true,
   "pages": ["index", "ai-model"]

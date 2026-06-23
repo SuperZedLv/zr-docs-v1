@@ -44,7 +44,7 @@ export const linkItems: LinkItemType[] = [
 
 export const logo = (
   <Image
-    alt="BestTokenRouter"
+    alt="BEST TOKEN"
     src="/assets/logo.png"
     width={20}
     height={20}
@@ -65,10 +65,11 @@ export function baseOptions(locale: string): BaseLayoutProps {
         <>
           {logo}
           <span className="font-medium in-[header]:text-[15px] [.uwu_&]:hidden">
-            BestTokenRouter
+            BEST TOKEN
           </span>
         </>
       ),
+      url: `/${locale}/docs/guide`,
     },
   };
 }

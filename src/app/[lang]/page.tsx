@@ -6,5 +6,5 @@ export default async function Page({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  redirect(`/${lang}/docs`);
+  redirect(`/${lang}/docs/guide`);
 }

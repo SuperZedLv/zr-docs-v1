@@ -1,6 +1,6 @@
 {
   "title": "APIリファレンス",
-  "description": "BestTokenRouter の完全なインターフェースドキュメント",
+  "description": "BEST TOKEN の完全なインターフェースドキュメント",
   "icon": "Code",
   "root": true,
   "pages": ["index", "ai-model"]

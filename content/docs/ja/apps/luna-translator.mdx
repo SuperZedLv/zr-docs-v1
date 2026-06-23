@@ -1,10 +1,10 @@
 ---
 title: LunaTranslator - オープンソース GalGame 翻訳ツール
-description: LunaTranslator チュートリアル — オープンソースのGalGame / ビジュアルノベル翻訳ツール。HOOK、OCR、AI翻訳エンジンをサポート。BestTokenRouter と連携して翻訳品質を向上させます。
+description: LunaTranslator チュートリアル — オープンソースのGalGame / ビジュアルノベル翻訳ツール。HOOK、OCR、AI翻訳エンジンをサポート。BEST TOKEN と連携して翻訳品質を向上させます。
 ---
 
 <Callout type="info" title="チャット設定オプション">
-  BestTokenRouter
+  BEST TOKEN
   コンソールのシステム設定->チャット設定で、以下のショートカットオプションを追加すると、トークン管理ページから
   LunaTranslator にワンクリックで入力できます。
 </Callout>
@@ -43,13 +43,13 @@ description: LunaTranslator チュートリアル — オープンソースのGa
 
 [LunaTranslator ドキュメント - ダウンロード & 起動 & 更新](https://docs.lunatranslator.org/ja/README.html) からダウンロードしてインストールしてください。
 
-## LunaTranslator で BestTokenRouter を連携する
+## LunaTranslator で BEST TOKEN を連携する
 
-LunaTranslator はローカルにデプロイされた BestTokenRouter の連携をサポートしています。ご自身でデプロイした BestTokenRouter を使用するか、サービスプロバイダーが合法的なアップストリームライセンスとコンプライアンス義務を持つ BestTokenRouter サービスであることを確認してください。出所不明のAPIアドレスやAPIキーを本番環境に接続しないでください。
+LunaTranslator はローカルにデプロイされた BEST TOKEN の連携をサポートしています。ご自身でデプロイした BEST TOKEN を使用するか、サービスプロバイダーが合法的なアップストリームライセンスとコンプライアンス義務を持つ BEST TOKEN サービスであることを確認してください。出所不明のAPIアドレスやAPIキーを本番環境に接続しないでください。
 
 ### ワンクリック設定
 
-1.  BestTokenRouter コンソールの`システム設定` -> `チャット設定`で、以下のショートカットオプションを追加します。
+1.  BEST TOKEN コンソールの`システム設定` -> `チャット設定`で、以下のショートカットオプションを追加します。
 
     ```json
     { "LunaTranslator": "lunatranslator://llmapi/base64?data={cheryConfig}" }
@@ -57,7 +57,7 @@ LunaTranslator はローカルにデプロイされた BestTokenRouter の連携
 
     ![add_config](/assets/luna_translator/add_config.png)
 
-2.  **`BestTokenRouter`** -> `コンソール` -> `トークン管理`タブで、LunaTranslator で使用するトークンを選択し、チャットボタンの横にあるドロップダウンオプションをクリックして `LunaTranslator` を選択すると、LunaTranslator にジャンプし、APIアドレスとAPIキーが自動的に設定されます。
+2.  **`BEST TOKEN`** -> `コンソール` -> `トークン管理`タブで、LunaTranslator で使用するトークンを選択し、チャットボタンの横にあるドロップダウンオプションをクリックして `LunaTranslator` を選択すると、LunaTranslator にジャンプし、APIアドレスとAPIキーが自動的に設定されます。
 
     ![跳转到 LunaTranslator](/assets/luna_translator/jump_to_app.png)
 
@@ -65,7 +65,7 @@ LunaTranslator はローカルにデプロイされた BestTokenRouter の連携
 
     ![设置api](/assets/luna_translator/api_setting.png)
 
-4.  **model** ドロップダウンボックスの横にある更新ボタンをクリックして、BestTokenRouter プラットフォームのモデルリストを取得し、モデル名を選択または入力した後、OKをクリックして保存します。
+4.  **model** ドロップダウンボックスの横にある更新ボタンをクリックして、BEST TOKEN プラットフォームのモデルリストを取得し、モデル名を選択または入力した後、OKをクリックして保存します。
 
     ![设置模型](/assets/luna_translator/setting_model.png)
 
@@ -75,7 +75,7 @@ LunaTranslator はローカルにデプロイされた BestTokenRouter の連携
 
 ### 手動設定
 
-1.  **`BestTokenRouter`** -> `コンソール` -> `トークン管理`タブでAPIキーを取得します。
+1.  **`BEST TOKEN`** -> `コンソール` -> `トークン管理`タブでAPIキーを取得します。
 
     ![获取 API Key](/assets/luna_translator/copy_api_key.png)
 
@@ -93,11 +93,11 @@ LunaTranslator はローカルにデプロイされた BestTokenRouter の連携
 
     ![设置 API2](/assets/luna_translator/setting_api2.png)
 
-5.  **model** ドロップダウンボックスの横にある更新ボタンをクリックして、BestTokenRouter プラットフォームのモデルリストを取得し、モデル名を選択または入力した後、OKをクリックして保存します。
+5.  **model** ドロップダウンボックスの横にある更新ボタンをクリックして、BEST TOKEN プラットフォームのモデルリストを取得し、モデル名を選択または入力した後、OKをクリックして保存します。
 
     ![设置 API3](/assets/luna_translator/setting_api3.png)
 
-6.  **BestTokenRouter** の横にあるトグルボタンをクリックしてインターフェースを有効にし、使用を開始します。
+6.  **BEST TOKEN** の横にあるトグルボタンをクリックしてインターフェースを有効にし、使用を開始します。
 
     ![打开API](/assets/luna_translator/open_api.png)
 

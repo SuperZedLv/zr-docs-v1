@@ -2,7 +2,7 @@
 title: 1Panel パネルのデプロイ
 ---
 
-このドキュメントでは、1Panel パネルを使用して BestTokenRouter をデプロイするための図解チュートリアルを提供します。
+このドキュメントでは、1Panel パネルを使用して BEST TOKEN をデプロイするための図解チュートリアルを提供します。
 
 ## 前提条件
 
@@ -22,12 +22,12 @@ title: 1Panel パネルのデプロイ
 
 ![1panel](/assets/1panel/1panel.jpg)
 
-## ステップ2：BestTokenRouter のインストール
+## ステップ2：BEST TOKEN のインストール
 
 ### アプリケーションの検索
 
 <Callout type="info" title="アプリケーションの検索">
-  アプリケーションストアのアプリケーションリストに入り、【AI】カテゴリで BestTokenRouter アプリケーションを見つけてインストールします。
+  アプリケーションストアのアプリケーションリストに入り、【AI】カテゴリで BEST TOKEN アプリケーションを見つけてインストールします。
 </Callout>
 
 ![1panel-newapi](/assets/1panel/1panel-newapi.jpg)
@@ -35,12 +35,12 @@ title: 1Panel パネルのデプロイ
 ### パラメータの設定
 
 <Callout type="info" title="アプリケーションのインストール">
-  インストールページで BestTokenRouter アプリケーションのパラメータを設定します。
+  インストールページで BEST TOKEN アプリケーションのパラメータを設定します。
 </Callout>
 
-- **名前**：作成する BestTokenRouter アプリケーションの名前
-- **バージョン**：BestTokenRouter のバージョンを選択します
-- **ポート**：BestTokenRouter アプリケーションのサービスポート
+- **名前**：作成する BEST TOKEN アプリケーションの名前
+- **バージョン**：BEST TOKEN のバージョンを選択します
+- **ポート**：BEST TOKEN アプリケーションのサービスポート
 - **タイムゾーン**：サーバーのタイムゾーンを入力します（デフォルト Asia/Shanghai）
 - **詳細設定**：ポートの外部アクセスを必ずチェックしてください
 
@@ -49,7 +49,7 @@ title: 1Panel パネルのデプロイ
 ### インストールの確認
 
 <Callout type="info" title="インストールの確認">
-  「確認」をクリックしてインストールを開始すると、ページは自動的にインストール済みアプリケーションリストにリダイレクトされ、BestTokenRouter アプリケーションの状態が「起動済み」になるまで待ちます。
+  「確認」をクリックしてインストールを開始すると、ページは自動的にインストール済みアプリケーションリストにリダイレクトされ、BEST TOKEN アプリケーションの状態が「起動済み」になるまで待ちます。
 </Callout>
 
 ![newapi-start](/assets/1panel/newapi-start.jpg)
@@ -67,7 +67,7 @@ title: 1Panel パネルのデプロイ
 
 ### 設定方法
 
-1. 1Panel アプリケーションリストで、BestTokenRouter アプリケーションの **パラメータ** ボタンをクリックします
+1. 1Panel アプリケーションリストで、BEST TOKEN アプリケーションの **パラメータ** ボタンをクリックします
 2. 環境変数セクションに追加します：
    - `SESSION_SECRET=your_random_secret_key`
    - `CRYPTO_SECRET=your_crypto_secret_key`（オプション）
@@ -84,10 +84,10 @@ openssl rand -hex 16
 head -c 16 /dev/urandom | xxd -p
 ```
 
-## ステップ4：BestTokenRouter へのアクセス
+## ステップ4：BEST TOKEN へのアクセス
 
 <Callout type="info" title="アプリケーションへのアクセス">
-  - 「インストール済み」ページで、「ジャンプ」をクリックすると BestTokenRouter の WebUI ページに入ることができます
+  - 「インストール済み」ページで、「ジャンプ」をクリックすると BEST TOKEN の WebUI ページに入ることができます
   - 使用前に、「パネル設定」ページで「デフォルトアクセスアドレス」を設定することをお勧めします
 </Callout>
 
@@ -110,7 +110,7 @@ head -c 16 /dev/urandom | xxd -p
 ### バージョンを更新する方法
 
 1. 1Panel パネルにログインし、**アプリストア** → **アップグレード可能** ページに移動
-2. BestTokenRouter アプリケーションを見つけ、**アップグレード** ボタンをクリック
+2. BEST TOKEN アプリケーションを見つけ、**アップグレード** ボタンをクリック
 3. ターゲットバージョンを選択し、**確認** をクリック
 
 ### データを永続化する方法

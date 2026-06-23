@@ -1,27 +1,27 @@
 ---
 title: newapi
-description: newapi is the official BestTokenRouter user-level Skill for Claude Code, Codex, and OpenClaw. Query models, manage tokens, view groups, check balance, and ask BestTokenRouter usage questions directly inside your AI coding workflow.
+description: newapi is the official BEST TOKEN user-level Skill for Claude Code, Codex, and OpenClaw. Query models, manage tokens, view groups, check balance, and ask BEST TOKEN usage questions directly inside your AI coding workflow.
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
 <Callout type="info" title="What is newapi-skills?">
-  **newapi-skills** is the official AI editor Skill plugin from BestTokenRouter. Skills are a lightweight extension protocol that enables AI coding assistants — such as Claude Code, Codex, OpenClaw, Cursor, Windsurf, and Cline — to **call BestTokenRouter endpoints directly from within the editor**, performing model queries, token management, balance checks, and answering BestTokenRouter deployment, configuration, and API usage questions without ever leaving your coding environment.
+  **newapi-skills** is the official AI editor Skill plugin from BEST TOKEN. Skills are a lightweight extension protocol that enables AI coding assistants — such as Claude Code, Codex, OpenClaw, Cursor, Windsurf, and Cline — to **call BEST TOKEN endpoints directly from within the editor**, performing model queries, token management, balance checks, and answering BEST TOKEN deployment, configuration, and API usage questions without ever leaving your coding environment.
 
   - GitHub Repository: [github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
 
-  It now also works inside OpenClaw, so you can run `/newapi` commands for models, tokens, groups, and balance, and ask BestTokenRouter usage questions without leaving your agent workflow.
+  It now also works inside OpenClaw, so you can run `/newapi` commands for models, tokens, groups, and balance, and ask BEST TOKEN usage questions without leaving your agent workflow.
 </Callout>
 
 ## Why Use Skills
 
-During everyday AI development, developers frequently switch between their editor and the BestTokenRouter management dashboard — checking available models, creating API tokens, inspecting balance, adjusting group quotas. These context switches disrupt coding flow.
+During everyday AI development, developers frequently switch between their editor and the BEST TOKEN management dashboard — checking available models, creating API tokens, inspecting balance, adjusting group quotas. These context switches disrupt coding flow.
 
 **What newapi-skills solves:**
 
 - **Zero context-switching**: Issue natural language commands directly in Claude Code, Codex, OpenClaw, or other AI IDEs — no browser or admin panel needed
-- **Built-in help**: Ask about BestTokenRouter deployment, configuration, groups, and API call formats directly from your coding workflow
+- **Built-in help**: Ask about BEST TOKEN deployment, configuration, groups, and API call formats directly from your coding workflow
 - **Security-first design**: Keys are never shown in plain text; token copy and injection use secure channels (`sk-` prefixed keys never appear in terminal output or logs)
 - **Instant setup**: A single `npx` command handles installation; runtime auto-detection (Bun / Node.js / Deno)
 - **Cross-editor compatibility**: Works with any AI editor or coding assistant that implements the Skills protocol
@@ -43,13 +43,13 @@ newapi-skills works with the following AI coding tools:
 
 ## Commands Reference
 
-Below is the complete list of commands provided by newapi-skills. These commands interact with the BestTokenRouter REST API to query and manage resources on your BestTokenRouter instance.
+Below is the complete list of commands provided by newapi-skills. These commands interact with the BEST TOKEN REST API to query and manage resources on your BEST TOKEN instance.
 
 ### Query Commands
 
 | Command | Description | Use Case |
 |---------|-------------|----------|
-| `/newapi models` | List available AI models | View all models configured on your BestTokenRouter instance (OpenAI, Claude, Gemini, etc.) |
+| `/newapi models` | List available AI models | View all models configured on your BEST TOKEN instance (OpenAI, Claude, Gemini, etc.) |
 | `/newapi groups` | List user groups | View your account's groups with quota and rate multiplier settings |
 | `/newapi balance` | Show account balance | Real-time query of current user's balance and usage |
 
@@ -67,7 +67,7 @@ Below is the complete list of commands provided by newapi-skills. These commands
 
 | Command | Description | Use Case |
 |---------|-------------|----------|
-| `/newapi help <question>` | Ask about BestTokenRouter | Get help on BestTokenRouter deployment, configuration, API call formats, and more |
+| `/newapi help <question>` | Ask about BEST TOKEN | Get help on BEST TOKEN deployment, configuration, API call formats, and more |
 
 ## Installation & Configuration
 
@@ -86,7 +86,7 @@ Below is the complete list of commands provided by newapi-skills. These commands
   <Step>
     ### Set Environment Variables
 
-    newapi-skills requires three environment variables to connect to your BestTokenRouter instance. Add them to your shell profile:
+    newapi-skills requires three environment variables to connect to your BEST TOKEN instance. Add them to your shell profile:
 
     ```bash
     # ~/.bashrc or ~/.zshrc
@@ -97,7 +97,7 @@ Below is the complete list of commands provided by newapi-skills. These commands
 
     | Variable | Description | Example |
     |----------|-------------|---------|
-    | `NEWAPI_BASE_URL` | BestTokenRouter service URL | `https://api.example.com` |
+    | `NEWAPI_BASE_URL` | BEST TOKEN service URL | `https://api.example.com` |
     | `NEWAPI_ACCESS_TOKEN` | Admin or user access token | From "Personal Settings → Account → Security → System Access Token" |
     | `NEWAPI_USER_ID` | User ID | `1` (admin default is 1) |
 
@@ -111,7 +111,7 @@ Below is the complete list of commands provided by newapi-skills. These commands
     - Type `/newapi models` to list available models
     - Type `/newapi balance` to check your current balance
     - Type `/newapi create-token my-app` to create a new token named `my-app`
-    - Type `/newapi help how do I configure groups and tokens?` to ask BestTokenRouter usage questions directly
+    - Type `/newapi help how do I configure groups and tokens?` to ask BEST TOKEN usage questions directly
     - In OpenClaw, you can also run `/newapi models`, `/newapi balance`, and token commands directly in your agent workflow
   </Step>
 </Steps>
@@ -140,5 +140,5 @@ newapi-skills has multiple layers of security built in to protect your API keys:
 newapi-skills is under active development — commands and features may change with updates. Refer to the repository README for the latest information and changelog:
 
 - GitHub Repository: [github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
-- BestTokenRouter Website: [www.newapi.ai](https://www.newapi.ai)
-- BestTokenRouter GitHub: [github.com/QuantumNous/new-api](https://github.com/QuantumNous/new-api)
+- BEST TOKEN Website: [www.besttokenrouter.ai](https://www.besttokenrouter.ai)
+- BEST TOKEN GitHub: [github.com/QuantumNous/new-api](https://github.com/QuantumNous/new-api)

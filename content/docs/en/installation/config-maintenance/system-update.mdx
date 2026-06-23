@@ -2,7 +2,7 @@
 title: System Update Guide
 ---
 
-This document provides methods and best practices for updating the BestTokenRouter system to ensure a smooth upgrade to the latest version.
+This document provides methods and best practices for updating the BEST TOKEN system to ensure a smooth upgrade to the latest version.
 
 ## Pre-update Preparations
 
@@ -17,7 +17,7 @@ Before updating the system, it is recommended to perform the following preparati
 
 ### Method One: Single Container Deployment Update
 
-If you have deployed BestTokenRouter using a single Docker container, you can update by following these steps:
+If you have deployed BEST TOKEN using a single Docker container, you can update by following these steps:
 
 ```shell
 # 拉取最新镜像
@@ -68,7 +68,7 @@ docker compose pull && docker compose down && docker compose up -d
 If you are deploying using the 1Panel panel, you can update by following these steps:
 
 1.  Log in to the 1Panel panel, go to **App Store** -> **Upgradable Page**
-2.  Find the BestTokenRouter application and click the **Upgrade** button
+2.  Find the BEST TOKEN application and click the **Upgrade** button
 3.  Select the **Target version to upgrade to**
 4.  Click the **Confirm** button, and the system will automatically pull the latest image to upgrade the application
 
@@ -77,13 +77,13 @@ If you are deploying using the 1Panel panel, you can update by following these s
 If you are deploying using the Baota Panel, you can update by following these steps:
 
 1.  Log in to the Baota Panel, go to **Docker Management** -> **Container List**
-2.  Find the BestTokenRouter container, click **More** -> **Recreate**
+2.  Find the BEST TOKEN container, click **More** -> **Recreate**
 3.  Check the **Pull latest image** option, ensuring other configurations remain unchanged
 4.  Click **Submit**, and the system will automatically pull the latest image and recreate the container
 
 ## Update Method from Source Code Compilation
 
-If you have deployed BestTokenRouter by compiling from source code, the update steps are as follows:
+If you have deployed BEST TOKEN by compiling from source code, the update steps are as follows:
 
 ```shell
 # 进入项目目录

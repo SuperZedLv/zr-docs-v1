@@ -1,6 +1,6 @@
 ---
 title: Claude Code
-description: Claude Code configuration guide — use Anthropic's terminal-based coding agent with BestTokenRouter. Supports code understanding, multi-file editing, and IDE integration.
+description: Claude Code configuration guide — use Anthropic's terminal-based coding agent with BEST TOKEN. Supports code understanding, multi-file editing, and IDE integration.
 ---
 
 <Callout type="info" title="Project Introduction">
@@ -142,15 +142,32 @@ Claude Code requires a Node.js environment to run.
 
 #### 4. Set Environment Variables
 
-<Callout type="info" title="One-Click Setup Command (Windows System)">
-  To allow Claude Code to connect to your relay service, you need to set multiple environment variables:
+To allow Claude Code to connect to your relay service, you need to set the following environment variables:
+
+| Variable Name        | Description                | Example Value                        |
+| -------------------- | -------------------------- | ------------------------------------ |
+| `ANTHROPIC_BASE_URL` | API base URL               | `https://your-api-site.com`          |
+| `ANTHROPIC_AUTH_TOKEN`| API key (Token)            | `sk-xxx` (obtain from console token management page) |
+
+<Callout type="info" title="Set environment variables in PowerShell">
+  Replace the URL and Token below with your own values, then execute line by line:
+
+  ```powershell
+  [Environment]::SetEnvironmentVariable('ANTHROPIC_BASE_URL', 'https://your-api-site.com', 'User')
+  [Environment]::SetEnvironmentVariable('ANTHROPIC_AUTH_TOKEN', 'sk-xxx', 'User')
+  ```
+
+  The above commands write the environment variables at the user level, making them permanent. Also set them in the current session for immediate effect:
+
+  ```powershell
+  $env:ANTHROPIC_BASE_URL = 'https://your-api-site.com'
+  $env:ANTHROPIC_AUTH_TOKEN = 'sk-xxx'
+  ```
 </Callout>
 
-```powershell
-iex (irm 'https://raw.githubusercontent.com/QuantumNous/new-api-docs/refs/heads/main/helper/claude-cli-setup.ps1')
-```
-
-![windows-configure](/assets/claude_code/windows_configure.png)
+<Callout type="info" title="Obtain Token">
+  Visit your API site's console token management page (e.g., `https://your-api-site.com/console/token`) to create or copy your API Token.
+</Callout>
 
 #### 5. Start Using Claude Code
 
@@ -226,17 +243,28 @@ Open Terminal
 
 #### 2. Set Environment Variables
 
-To allow Claude Code to connect to a third-party relay service, you need to set environment variables:
+To allow Claude Code to connect to a third-party relay service, you need to set the following environment variables:
 
-<Callout type="info" title="One-Click Setup for Claude Code Environment Variables">
-  Enter the command:
+| Variable Name        | Description                | Example Value                        |
+| -------------------- | -------------------------- | ------------------------------------ |
+| `ANTHROPIC_BASE_URL` | API base URL               | `https://your-api-site.com`          |
+| `ANTHROPIC_AUTH_TOKEN`| API key (Token)            | `sk-xxx` (obtain from console token management page) |
+
+<Callout type="info" title="Directly modify environment variables">
+  Open Terminal, replace the URL and Token below with your own values, then execute:
 
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/QuantumNous/new-api-docs/refs/heads/main/helper/claude-cli-setup.sh | bash
+  echo 'export ANTHROPIC_BASE_URL="https://your-api-site.com"' >> ~/.zshrc
+  echo 'export ANTHROPIC_AUTH_TOKEN="sk-xxx"' >> ~/.zshrc
+  source ~/.zshrc
   ```
+
+  If you are using bash, replace `~/.zshrc` with `~/.bashrc`.
 </Callout>
 
-![macos-configure](/assets/claude_code/macos_configure.png)
+<Callout type="info" title="Obtain Token">
+  Visit your API site's console token management page (e.g., `https://your-api-site.com/console/token`) to create or copy your API Token.
+</Callout>
 
 <Callout type="info" title="Verify Claude Code Installation">
   After installation, enter the following command to check if it was successfully installed:
@@ -342,17 +370,28 @@ You can now start using Claude Code!
 
 #### 2. Set Environment Variables
 
-To allow Claude Code to connect to your relay service, you need to set two environment variables:
+To allow Claude Code to connect to your relay service, you need to set the following environment variables:
 
-<Callout type="info" title="One-Click Environment Variable Modification">
-  Enter the command:
+| Variable Name        | Description                | Example Value                        |
+| -------------------- | -------------------------- | ------------------------------------ |
+| `ANTHROPIC_BASE_URL` | API base URL               | `https://your-api-site.com`          |
+| `ANTHROPIC_AUTH_TOKEN`| API key (Token)            | `sk-xxx` (obtain from console token management page) |
+
+<Callout type="info" title="Directly modify environment variables">
+  Open Terminal, replace the URL and Token below with your own values, then execute:
 
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/QuantumNous/new-api-docs/refs/heads/main/helper/claude-cli-setup.sh | bash
+  echo 'export ANTHROPIC_BASE_URL="https://your-api-site.com"' >> ~/.bashrc
+  echo 'export ANTHROPIC_AUTH_TOKEN="sk-xxx"' >> ~/.bashrc
+  source ~/.bashrc
   ```
+
+  If you are using zsh, replace `~/.bashrc` with `~/.zshrc`.
 </Callout>
 
-![macos-configure](/assets/claude_code/macos_configure.png)
+<Callout type="info" title="Obtain Token">
+  Visit your API site's console token management page (e.g., `https://your-api-site.com/console/token`) to create or copy your API Token.
+</Callout>
 
 #### 3. Start Using Claude Code
 

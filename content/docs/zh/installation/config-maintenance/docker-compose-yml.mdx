@@ -2,11 +2,11 @@
 title: Docker Compose 配置说明
 ---
 
-本文档详细介绍了BestTokenRouter的Docker Compose配置选项，可用于多种部署场景。
+本文档详细介绍了BEST TOKEN的Docker Compose配置选项，可用于多种部署场景。
 
 ## 基本配置结构
 
-Docker Compose配置文件 `docker-compose.yml` 定义了BestTokenRouter服务及其依赖服务（如MySQL、Redis）的部署方式。
+Docker Compose配置文件 `docker-compose.yml` 定义了BEST TOKEN服务及其依赖服务（如MySQL、Redis）的部署方式。
 
 ## 标准配置（推荐生产环境）
 
@@ -102,7 +102,7 @@ volumes:
 
 ## 简化配置（适合测试环境）
 
-如果只是测试使用，可以采用以下简化版本，仅包含BestTokenRouter服务本身：
+如果只是测试使用，可以采用以下简化版本，仅包含BEST TOKEN服务本身：
 
 ```yaml
 services:
@@ -120,7 +120,7 @@ services:
 
 ## 配置说明
 
-### BestTokenRouter服务配置
+### BEST TOKEN服务配置
 
 | 参数             | 说明                                                      |
 | ---------------- | --------------------------------------------------------- |
@@ -130,13 +130,13 @@ services:
 | `command`        | 启动命令，可自定义启动参数                                |
 | `ports`          | 端口映射，默认将容器内3000端口映射到主机3000端口          |
 | `volumes`        | 数据卷映射，确保数据持久化                                |
-| `environment`    | 环境变量设置，用于配置BestTokenRouter行为                         |
+| `environment`    | 环境变量设置，用于配置BEST TOKEN行为                         |
 | `depends_on`     | 依赖服务，确保按正确顺序启动                              |
 | `healthcheck`    | 健康检查配置，用于监控服务状态                            |
 
 ### 环境变量说明
 
-BestTokenRouter支持多种环境变量配置，以下是常用的几个：
+BEST TOKEN支持多种环境变量配置，以下是常用的几个：
 
 | 环境变量            | 说明                   | 示例                                  |
 | ------------------- | ---------------------- | ------------------------------------- |

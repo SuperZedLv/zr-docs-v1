@@ -1,0 +1,49 @@
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+a4e333934d5d 84f1733b4a01 "/bin/sh -c 'if [ -f…" 3 seconds ago Up 2 seconds musing_bose
+ docker build --no-cache -t zr-doc:v6 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+Sending build context to Docker daemon 81.31MB
+Step 1/26 : FROM node:20-alpine AS base
+20-alpine: Pulling from library/node
+4feea04c1543: Pulling fs layer
+fff4e2c1b189: Pulling fs layer
+b2cbbfe903b0: Pulling fs layer
+6a0ac1617861: Pulling fs layer
+0f92261bcd1c: Download complete
+fff4e2c1b189: Download complete
+14f8540414db: Download complete
+b2cbbfe903b0: Download complete
+6a0ac1617861: Download complete
+6a0ac1617861: Pull complete
+4feea04c1543: Download complete
+b2cbbfe903b0: Pull complete
+4feea04c1543: Pull complete
+fff4e2c1b189: Pull complete
+Digest: sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+Status: Downloaded newer image for node:20-alpine
+ ---> fb4cd12c85ee
+Step 2/26 : FROM base AS deps
+ ---> fb4cd12c85ee
+Step 3/26 : RUN apk add --no-cache libc6-compat && rm -rf /var/cache/apk/*
+ ---> Running in df6246852710
+(1/3) Installing musl-obstack (1.2.3-r2)
+(2/3) Installing libucontext (1.3.3-r0)
+(3/3) Installing gcompat (1.1.0-r4)
+OK: 11.0 MiB in 21 packages
+ ---> Removed intermediate container df6246852710
+ ---> cb2df310f5b0
+Step 4/26 : WORKDIR /app
+ ---> Running in df253b89daf7
+ ---> Removed intermediate container df253b89daf7
+ ---> 3ca25e0fa892
+Step 5/26 : COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+ ---> 84f1733b4a01
+Step 6/26 : RUN if [ -f package-lock.json ]; then npm ci --legacy-peer-deps --ignore-scripts --omit=dev; elif [ -f yarn.lock ]; then yarn --frozen-lockfile --ignore-scripts --production; elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile --ignore-scripts --prod; else echo "Lockfile not found." && exit 1; fi
+ ---> Running in a4e333934d5d
+npm warn deprecated next@16.0.7: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
+ 
+你的这个也是到第六步的时候出现4b6b9b4f538a   9c44f7193851   "/bin/sh -c 'npx fum…"   11 seconds ago   Exited (1) 10 seconds ago             youthful_bhabha
+
+

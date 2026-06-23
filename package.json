@@ -19,7 +19,7 @@
   "dependencies": {
     "@ai-sdk/openai-compatible": "^1.0.27",
     "@ai-sdk/react": "^2.0.93",
-    "@next/third-parties": "^16.0.7",
+    "@next/third-parties": "^16.2.9",
     "@orama/orama": "^3.1.16",
     "@orama/tokenizers": "^3.1.16",
     "@paper-design/shaders-react": "^0.0.63",
@@ -34,7 +34,7 @@
     "hast-util-to-jsx-runtime": "^2.3.6",
     "katex": "^0.16.25",
     "lucide-react": "^0.552.0",
-    "next": "16.0.7",
+    "next": "^16.2.9",
     "next-themes": "^0.4.6",
     "octokit": "^5.0.5",
     "react": "^19.2.1",
@@ -45,6 +45,7 @@
     "shiki": "3.15.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.19.2",
     "unist-util-visit": "^5.0.0",
     "zod": "^4.1.12"
   },
@@ -58,7 +59,6 @@
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.16",
-    "tsx": "^4.19.2",
     "typescript": "^5.9.3",
     "vite": "^6.0.0"
   }

@@ -40,11 +40,11 @@ function Header() {
         <p className="text-fd-muted-foreground text-xs">
           Powered by{' '}
           <a
-            href="https://www.newapi.ai"
+            href="https://www.besttokenrouter.ai"
             target="_blank"
             rel="noreferrer noopener"
           >
-            BestTokenRouter
+            BEST TOKEN
           </a>
         </p>
       </div>
@@ -247,7 +247,7 @@ function Input(props: ComponentProps<'textarea'>) {
 
 const roleName: Record<string, string> = {
   user: 'you',
-  assistant: 'BestTokenRouter Docs',
+  assistant: 'BEST TOKEN Docs',
 };
 
 function Message({

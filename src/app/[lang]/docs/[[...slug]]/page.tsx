@@ -5,7 +5,7 @@ import {
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
@@ -23,6 +23,12 @@ export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
 }) {
   const { slug, lang } = await props.params;
+
+  // Redirect docs root to the User Guide
+  if (!slug || slug.length === 0) {
+    redirect(`/${lang}/docs/guide`);
+  }
+
   const page = source.getPage(slug, lang);
   if (!page) notFound();
 
