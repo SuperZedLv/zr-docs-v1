@@ -93,22 +93,22 @@ OpenClaw の設定ファイルは通常 `~/.openclaw/openclaw.json` にありま
 
 ## 🚀 BEST TOKENをモデルプロバイダーとして使用する
 
-OpenClaw は、`models.providers` を介してカスタムまたは OpenAI 互換インターフェースのモデルゲートウェイを接続することをサポートしています。BEST TOKEN の場合、最も一般的な方法は、それをカスタムプロバイダーとして設定に追加し、デフォルトモデルを `newapi/モデルID` に指定することです。
+OpenClaw は、`models.providers` を介してカスタムまたは OpenAI 互換インターフェースのモデルゲートウェイを接続することをサポートしています。BEST TOKEN の場合、最も一般的な方法は、それをカスタムプロバイダーとして設定に追加し、デフォルトモデルを `besttoken/モデルID` に指定することです。
 
 ### 連携の考え方
 
-1.  `models.providers` の下に `newapi` プロバイダーを宣言します。
+1.  `models.providers` の下に `besttoken` プロバイダーを宣言します。
 2.  `baseUrl` を BEST TOKEN アドレスに指定し、`/v1` が含まれていることを確認します。
 3.  `api` を `openai-completions` に設定します。
 4.  `models` に OpenClaw で使用したいモデルIDをリストします。
-5.  `agents.defaults.model.primary` でデフォルトモデルを `newapi/...` に切り替えます。
+5.  `agents.defaults.model.primary` でデフォルトモデルを `besttoken/...` に切り替えます。
 
 ### 推奨される方法：環境変数でAPIキーを保存する
 
 まず、現在のシェル、サービス環境、または OpenClaw が読み取れる `.env` に BEST TOKEN キーを提供します。
 
 ```bash
-export NEWAPI_API_KEY="sk-your-newapi-key"
+export BESTTOKEN_API_KEY="sk-your-besttoken-key"
 ```
 
 次に、`openclaw.json` に以下のスニペットを追加または変更します。
@@ -118,9 +118,9 @@ export NEWAPI_API_KEY="sk-your-newapi-key"
   models: {
     mode: "merge",
     providers: {
-      newapi: {
-        baseUrl: "https://<your-newapi-domain>/v1",
-        apiKey: "${NEWAPI_API_KEY}",
+      besttoken: {
+        baseUrl: "https://<your-besttoken-domain>/v1",
+        apiKey: "${BESTTOKEN_API_KEY}",
         api: "openai-completions",
         models: [
           { id: "gemini-2.5-flash", name: "Gemini 2.5 Flash" },
@@ -133,12 +133,12 @@ export NEWAPI_API_KEY="sk-your-newapi-key"
   agents: {
     defaults: {
       model: {
-        primary: "newapi/gemini-2.5-flash",
-        fallbacks: ["newapi/kimi-k2.5"],
+        primary: "besttoken/gemini-2.5-flash",
+        fallbacks: ["besttoken/kimi-k2.5"],
       },
       models: {
-        "newapi/gemini-2.5-flash": { alias: "flash" },
-        "newapi/kimi-k2.5": { alias: "kimi" },
+        "besttoken/gemini-2.5-flash": { alias: "flash" },
+        "besttoken/kimi-k2.5": { alias: "kimi" },
       },
     },
   },
@@ -151,11 +151,11 @@ export NEWAPI_API_KEY="sk-your-newapi-key"
 
 | 設定項目 | 説明 |
 | --- | --- |
-| `models.mode` | `merge` に設定することをお勧めします。これにより、OpenClaw の組み込みプロバイダーを保持しつつ、`newapi` を追加できます。 |
-| `models.providers.newapi.baseUrl` | BEST TOKEN のアドレス。通常 `/v1` を含める必要があります。 |
-| `models.providers.newapi.apiKey` | BEST TOKEN キー。`${NEWAPI_API_KEY}` を介して注入することをお勧めします。 |
-| `models.providers.newapi.api` | BEST TOKEN のような OpenAI 互換ゲートウェイの場合、`openai-completions` を使用します。 |
-| `models.providers.newapi.models` | ここにリストされているモデルIDは、BEST TOKEN が実際に公開しているモデル名と一致している必要があります。 |
+| `models.mode` | `merge` に設定することをお勧めします。これにより、OpenClaw の組み込みプロバイダーを保持しつつ、`besttoken` を追加できます。 |
+| `models.providers.besttoken.baseUrl` | BEST TOKEN のアドレス。通常 `/v1` を含める必要があります。 |
+| `models.providers.besttoken.apiKey` | BEST TOKEN キー。`${BESTTOKEN_API_KEY}` を介して注入することをお勧めします。 |
+| `models.providers.besttoken.api` | BEST TOKEN のような OpenAI 互換ゲートウェイの場合、`openai-completions` を使用します。 |
+| `models.providers.besttoken.models` | ここにリストされているモデルIDは、BEST TOKEN が実際に公開しているモデル名と一致している必要があります。 |
 | `agents.defaults.model.primary` | デフォルトのプライマリモデル。形式は `provider/model-id` である必要があります。 |
 | `agents.defaults.model.fallbacks` | フォールバックモデルのリスト。プライマリモデルが失敗した場合に自動的に切り替わります。 |
 | `agents.defaults.models` | オプション。モデルにエイリアスを付けるために使用し、UI やセッションで参照しやすくします。 |
@@ -168,17 +168,17 @@ export NEWAPI_API_KEY="sk-your-newapi-key"
 openclaw dashboard
 ```
 
-OpenClaw で正常に会話を開始でき、デフォルトモデルが `newapi/...` になっている場合、連携は成功です。また、以下を使用することもできます。
+OpenClaw で正常に会話を開始でき、デフォルトモデルが `besttoken/...` になっている場合、連携は成功です。また、以下を使用することもできます。
 
 ```bash
 openclaw models list
 ```
 
-`newapi/` プレフィックスのモデルが利用可能なリストに表示されていることを確認します。
+`besttoken/` プレフィックスのモデルが利用可能なリストに表示されていることを確認します。
 
 ### よくある質問
 
 -   `baseUrl` に `/v1` が含まれていない：これは最も一般的な連携エラーの1つです。
--   モデルIDの入力ミス：`primary` と `fallbacks` は `models.providers.newapi.models` 内の `id` と一致している必要があります。
--   APIキーが現在のターミナルでのみ有効：Gateway がバックグラウンドサービスとして実行されている場合、サービスプロセスも `NEWAPI_API_KEY` を読み取れることを確認してください。
+-   モデルIDの入力ミス：`primary` と `fallbacks` は `models.providers.besttoken.models` 内の `id` と一致している必要があります。
+-   APIキーが現在のターミナルでのみ有効：Gateway がバックグラウンドサービスとして実行されている場合、サービスプロセスも `BESTTOKEN_API_KEY` を読み取れることを確認してください。
 -   フォアグラウンドでのトラブルシューティングを希望する場合：公式のフォアグラウンド実行方法 `openclaw gateway --port 18789` を使用して、ログとエラーを監視できます。

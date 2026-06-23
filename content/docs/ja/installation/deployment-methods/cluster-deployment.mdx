@@ -74,7 +74,7 @@ services:
       - TZ=Asia/Shanghai
       # 以下はオプション設定
       - SYNC_FREQUENCY=60 # 同期頻度、単位は秒
-      # - FRONTEND_BASE_URL=https://<your-newapi-domain> # フロントエンドのベースURL、メール通知などの機能に使用
+      # - FRONTEND_BASE_URL=https://<your-besttoken-domain> # フロントエンドのベースURL、メール通知などの機能に使用
     volumes:
       - ./data:/data
       - ./logs:/app/logs
@@ -111,7 +111,7 @@ services:
       - SYNC_FREQUENCY=60 # スレーブノードとマスターノードの同期頻度、単位は秒
       - TZ=Asia/Shanghai
       # 以下はオプション設定
-      # - FRONTEND_BASE_URL=https://<your-newapi-domain> # マスターノードと同じである必要があります
+      # - FRONTEND_BASE_URL=https://<your-besttoken-domain> # マスターノードと同じである必要があります
     volumes:
       - ./data:/data
       - ./logs:/app/logs
@@ -139,7 +139,7 @@ upstream new_api_cluster {
 
 server {
     listen 80;
-    server_name <your-newapi-domain>;
+    server_name <your-besttoken-domain>;
 
     location / {
         proxy_pass http://new_api_cluster;

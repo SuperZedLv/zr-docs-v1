@@ -45,7 +45,7 @@ title: 環境変数設定ガイド
 | --------------------------- | ---------------------------------------------- | -------- | ------------------------------------------- |
 | `SESSION_SECRET`            | セッションキー（マルチマシンデプロイに必須） | -        | `SESSION_SECRET=your_session_secret`        |
 | `CRYPTO_SECRET`             | 暗号化キー（データベースコンテンツを暗号化、デフォルトはSESSION_SECRETにフォールバック） | -        | `CRYPTO_SECRET=your_crypto_secret`          |
-| `FRONTEND_BASE_URL`         | フロントエンドベースURL（スレーブノードで使用、未一致のルーティングをこのアドレスにリダイレクト） | -        | `FRONTEND_BASE_URL=https://<your-newapi-domain>` |
+| `FRONTEND_BASE_URL`         | フロントエンドベースURL（スレーブノードで使用、未一致のルーティングをこのアドレスにリダイレクト） | -        | `FRONTEND_BASE_URL=https://<your-besttoken-domain>` |
 | `NODE_TYPE`                 | ノードタイプ                                   | `master` | `NODE_TYPE=slave`                           |
 | `TLS_INSECURE_SKIP_VERIFY`  | グローバルTLS証明書検証をスキップ              | `false`  | `TLS_INSECURE_SKIP_VERIFY=true`             |
 | `TRUSTED_REDIRECT_DOMAINS`  | 信頼されたリダイレクトドメインリスト（カンマ区切り） | -        | `TRUSTED_REDIRECT_DOMAINS=example.com,api.example.com` |
@@ -260,7 +260,7 @@ REDIS_CONN_STRING=redis://default:password@redis-server:6379
 NODE_TYPE=slave
 
 # オプション：フロントエンドベースURL
-# FRONTEND_BASE_URL=https://<your-newapi-domain>
+# FRONTEND_BASE_URL=https://<your-besttoken-domain>
 
 # オプション：同期頻度
 SYNC_FREQUENCY=60

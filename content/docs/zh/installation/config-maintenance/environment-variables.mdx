@@ -45,7 +45,7 @@ title: 环境变量配置指南
 | --------------------------- | ---------------------------- | -------- | ------------------------------------------- |
 | `SESSION_SECRET`            | 会话密钥(多机部署必须)       | -        | `SESSION_SECRET=your_session_secret`        |
 | `CRYPTO_SECRET`             | 加密密钥(加密数据库内容，默认回退到SESSION_SECRET) | -        | `CRYPTO_SECRET=your_crypto_secret`          |
-| `FRONTEND_BASE_URL`         | 前端基础URL（从节点使用，将未匹配路由重定向到此地址） | -        | `FRONTEND_BASE_URL=https://<your-newapi-domain>` |
+| `FRONTEND_BASE_URL`         | 前端基础URL（从节点使用，将未匹配路由重定向到此地址） | -        | `FRONTEND_BASE_URL=https://<your-besttoken-domain>` |
 | `NODE_TYPE`                 | 节点类型                     | `master` | `NODE_TYPE=slave`                           |
 | `TLS_INSECURE_SKIP_VERIFY`  | 全局跳过TLS证书验证         | `false`  | `TLS_INSECURE_SKIP_VERIFY=true`             |
 | `TRUSTED_REDIRECT_DOMAINS`  | 受信任的重定向域名列表(逗号分隔) | -    | `TRUSTED_REDIRECT_DOMAINS=example.com,api.example.com` |
@@ -260,7 +260,7 @@ REDIS_CONN_STRING=redis://default:password@redis-server:6379
 NODE_TYPE=slave
 
 # 可选：前端基础URL
-# FRONTEND_BASE_URL=https://<your-newapi-domain>
+# FRONTEND_BASE_URL=https://<your-besttoken-domain>
 
 # 可选：同步频率
 SYNC_FREQUENCY=60

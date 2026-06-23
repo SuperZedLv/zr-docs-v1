@@ -1,0 +1,144 @@
+---
+title: besttoken
+description: besttoken is the official BEST TOKEN user-level Skill for Claude Code, Codex, and OpenClaw. Query models, manage tokens, view groups, check balance, and ask BEST TOKEN usage questions directly inside your AI coding workflow.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Callout type="info" title="What is besttoken-skills?">
+  **besttoken-skills** is the official AI editor Skill plugin from BEST TOKEN. Skills are a lightweight extension protocol that enables AI coding assistants — such as Claude Code, Codex, OpenClaw, Cursor, Windsurf, and Cline — to **call BEST TOKEN endpoints directly from within the editor**, performing model queries, token management, balance checks, and answering BEST TOKEN deployment, configuration, and API usage questions without ever leaving your coding environment.
+
+  - GitHub Repository: [github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
+
+  It now also works inside OpenClaw, so you can run `/besttoken` commands for models, tokens, groups, and balance, and ask BEST TOKEN usage questions without leaving your agent workflow.
+</Callout>
+
+## Why Use Skills
+
+During everyday AI development, developers frequently switch between their editor and the BEST TOKEN management dashboard — checking available models, creating API tokens, inspecting balance, adjusting group quotas. These context switches disrupt coding flow.
+
+**What besttoken-skills solves:**
+
+- **Zero context-switching**: Issue natural language commands directly in Claude Code, Codex, OpenClaw, or other AI IDEs — no browser or admin panel needed
+- **Built-in help**: Ask about BEST TOKEN deployment, configuration, groups, and API call formats directly from your coding workflow
+- **Security-first design**: Keys are never shown in plain text; token copy and injection use secure channels (`sk-` prefixed keys never appear in terminal output or logs)
+- **Instant setup**: A single `npx` command handles installation; runtime auto-detection (Bun / Node.js / Deno)
+- **Cross-editor compatibility**: Works with any AI editor or coding assistant that implements the Skills protocol
+
+## Supported AI Editors
+
+besttoken-skills works with the following AI coding tools:
+
+| AI Editor / Coding Assistant | Type | Notes |
+|------------------------------|------|-------|
+| **Claude Code** | Terminal AI programming assistant | Official Anthropic CLI |
+| **OpenClaw** | Self-hosted AI assistant platform | Supports Skills-based `/besttoken` command workflows |
+| **Cursor** | AI-native code editor | VS Code based |
+| **Windsurf** | AI code editor | By Codeium |
+| **Cline** | VS Code AI extension | Open-source AI coding agent |
+| **Codex CLI** | Terminal AI programming assistant | Official OpenAI CLI |
+
+> Any tool that supports the Skills protocol can use besttoken-skills.
+
+## Commands Reference
+
+Below is the complete list of commands provided by besttoken-skills. These commands interact with the BEST TOKEN REST API to query and manage resources on your BEST TOKEN instance.
+
+### Query Commands
+
+| Command | Description | Use Case |
+|---------|-------------|----------|
+| `/besttoken models` | List available AI models | View all models configured on your BEST TOKEN instance (OpenAI, Claude, Gemini, etc.) |
+| `/besttoken groups` | List user groups | View your account's groups with quota and rate multiplier settings |
+| `/besttoken balance` | Show account balance | Real-time query of current user's balance and usage |
+
+### Token Management Commands
+
+| Command | Description | Use Case |
+|---------|-------------|----------|
+| `/besttoken tokens` | List API tokens | View all created tokens (keys shown masked, e.g. `sk-reHR**********OspA`) |
+| `/besttoken create-token <name> [--group=xxx]` | Create new API token | Generate independent API keys for different apps or projects |
+| `/besttoken switch-group <token_id> <group>` | Change token's group | Modify token group to adjust model access permissions and rate multipliers |
+| `/besttoken copy-token <token_id>` | Copy key to clipboard | Securely copy the real key to system clipboard (key never displayed in terminal) |
+| `/besttoken apply-token <token_id> <file>` | Inject key into config file | Securely write token key into project config files (e.g. `.env`) via placeholder replacement |
+
+### Help Command
+
+| Command | Description | Use Case |
+|---------|-------------|----------|
+| `/besttoken help <question>` | Ask about BEST TOKEN | Get help on BEST TOKEN deployment, configuration, API call formats, and more |
+
+## Installation & Configuration
+
+<Steps>
+  <Step>
+    ### Install besttoken-skills
+
+    One-line installation via `npx`:
+
+    ```bash
+    npx skills add https://github.com/QuantumNous/skills --skill besttoken
+    ```
+
+    This pulls the latest Skill definition from the GitHub repository and installs it into your editor environment.
+  </Step>
+  <Step>
+    ### Set Environment Variables
+
+    besttoken-skills requires three environment variables to connect to your BEST TOKEN instance. Add them to your shell profile:
+
+    ```bash
+    # ~/.bashrc or ~/.zshrc
+    export BESTTOKEN_BASE_URL=https://<your-besttoken-domain>
+    export BESTTOKEN_ACCESS_TOKEN=your-access-token
+    export BESTTOKEN_USER_ID=1
+    ```
+
+    | Variable | Description | Example |
+    |----------|-------------|---------|
+    | `BESTTOKEN_BASE_URL` | BEST TOKEN service URL | `https://api.example.com` |
+    | `BESTTOKEN_ACCESS_TOKEN` | Admin or user access token | From "Personal Settings → Account → Security → System Access Token" |
+    | `BESTTOKEN_USER_ID` | User ID | `1` (admin default is 1) |
+
+    You can also create a `.env` file in your project root. Make sure `.env` is listed in `.gitignore` to prevent key leaks.
+  </Step>
+  <Step>
+    ### Start Using
+
+    Once installed, type `/besttoken` commands in any Skills-compatible AI editor. For example:
+
+    - Type `/besttoken models` to list available models
+    - Type `/besttoken balance` to check your current balance
+    - Type `/besttoken create-token my-app` to create a new token named `my-app`
+    - Type `/besttoken help how do I configure groups and tokens?` to ask BEST TOKEN usage questions directly
+    - In OpenClaw, you can also run `/besttoken models`, `/besttoken balance`, and token commands directly in your agent workflow
+  </Step>
+</Steps>
+
+## Runtime Requirements
+
+besttoken-skills requires one of the following JavaScript runtimes (auto-detected at startup):
+
+| Runtime | Version | Recommendation |
+|---------|---------|----------------|
+| **Bun** | Latest | Recommended (fastest) |
+| **Node.js** | >= 18 | Widely supported |
+| **Deno** | Latest | Optional |
+
+## Security
+
+besttoken-skills has multiple layers of security built in to protect your API keys:
+
+- Token listings only show **masked keys** (e.g. `sk-reHR**********OspA`) — real keys never appear in terminal output
+- `copy-token` copies the key to the system clipboard only, never displaying it in any output
+- `apply-token` uses placeholder replacement to inject keys, never exposing raw key content
+- All `sk-` prefixed key values are strictly protected throughout the entire execution flow
+
+## Learn More
+
+besttoken-skills is under active development — commands and features may change with updates. Refer to the repository README for the latest information and changelog:
+
+- GitHub Repository: [github.com/QuantumNous/skills](https://github.com/QuantumNous/skills)
+- BEST TOKEN Website: [www.besttokenrouter.ai](https://www.besttokenrouter.ai)
+- BEST TOKEN GitHub: [github.com/QuantumNous/new-api](https://github.com/QuantumNous/new-api)

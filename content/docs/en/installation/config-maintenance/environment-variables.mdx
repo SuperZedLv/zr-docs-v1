@@ -45,7 +45,7 @@ This document provides all environment variables supported by BEST TOKEN and the
 | --------------------------------- | ------------------------------------------------------------ | ------------- | ------------------------------------------- |
 | `SESSION_SECRET`                  | Session secret (required for multi-machine deployment)       | -             | `SESSION_SECRET=your_session_secret`        |
 | `CRYPTO_SECRET`                   | Encryption secret (encrypts database content, defaults to SESSION_SECRET) | -             | `CRYPTO_SECRET=your_crypto_secret`          |
-| `FRONTEND_BASE_URL`               | Frontend base URL (used by slave nodes, redirects unmatched routes to this address) | -             | `FRONTEND_BASE_URL=https://<your-newapi-domain>` |
+| `FRONTEND_BASE_URL`               | Frontend base URL (used by slave nodes, redirects unmatched routes to this address) | -             | `FRONTEND_BASE_URL=https://<your-besttoken-domain>` |
 | `NODE_TYPE`                       | Node type                                                    | `master`      | `NODE_TYPE=slave`                           |
 | `TLS_INSECURE_SKIP_VERIFY`        | Globally skip TLS certificate verification                   | `false`       | `TLS_INSECURE_SKIP_VERIFY=true`             |
 | `TRUSTED_REDIRECT_DOMAINS`        | List of trusted redirect domains (comma-separated)           | -             | `TRUSTED_REDIRECT_DOMAINS=example.com,api.example.com` |
@@ -260,7 +260,7 @@ REDIS_CONN_STRING=redis://default:password@redis-server:6379
 NODE_TYPE=slave
 
 # Optional: Frontend Base URL
-# FRONTEND_BASE_URL=https://<your-newapi-domain>
+# FRONTEND_BASE_URL=https://<your-besttoken-domain>
 
 # Optional: Synchronization Frequency
 SYNC_FREQUENCY=60
